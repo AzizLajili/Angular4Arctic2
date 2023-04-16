@@ -1,0 +1,17 @@
+<form (ngSubmit)="rechercher()">
+    <label>
+      Rechercher par entreprise:
+      <input type="text" [(ngModel)]="entrepriseRecherchee" name="entrepriseRecherchee">
+    </label>
+    <button type="submit">Rechercher</button>
+  </form>
+  <div></div>
+<button (click)="calculerNonCloturees()">Bilan</button>
+    <p>Nombre d'offres d'emploi non clôturées : {{ nombreNonCloturees }}</p>
+    
+<ul>
+    <li *ngFor="let emploi of emplois">
+      {{ emploi.reference }} - {{ emploi.titre }} - {{ emploi.entreprise }}
+      <button [disabled]="!emploi.etat">Postuler</button>
+    </li>
+  </ul>
